@@ -11,9 +11,15 @@ let analyzedData;
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://jasonjalufka.me/headlines/');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  next();
+};
 const port = 80;
 
-app.get('/', (req, res) => {
+app.get('/api/hi', (req, res) => {
   console.log('Hello world!');
   res.json('You did it!');
 });
