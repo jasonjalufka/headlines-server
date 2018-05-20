@@ -15,7 +15,7 @@ const port = 80;
 
 app.get('/', (req, res) => {
   console.log('Hello world!');
-  res.send({express: "Hello from express!"});
+  res.json('You did it!');
 });
 
 app.post('/api/hello', (req, res) => {
