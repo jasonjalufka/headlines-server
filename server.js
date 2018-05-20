@@ -11,8 +11,12 @@ let analyzedData;
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const port = process.env.OPENSHIFT_NODEJS_PORT || 5000;
-const ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+const port = 80;
+
+app.get('/', (req, res) => {
+  console.log('Hello world!');
+  res.send({express: "Hello from express!"});
+});
 
 app.post('/api/hello', (req, res) => {
   console.log(req.body);
@@ -23,4 +27,4 @@ app.post('/api/hello', (req, res) => {
     .catch(error)
 });
 
-app.listen(port, () => console.log(`Listening on ${ip_address} port ${port}`));
+app.listen(port, () => console.log(`Listening on port ${port}`));
