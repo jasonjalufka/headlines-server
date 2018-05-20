@@ -1,7 +1,7 @@
 const express = require('express');
 const indico = require('indico.io');
 const bodyParser = require('body-parser')
-indico.apiKey = process.env.INDICO_KEY;
+indico.apiKey = '49091132f1ab23857831196e1eedec3b';
 
 var settings = {"api_key": indico.apiKey};
 var response = res => console.log(res);
